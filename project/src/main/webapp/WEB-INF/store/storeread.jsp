@@ -6,8 +6,6 @@
 <%
 	pageContext.setAttribute("br", "<br/>");
 	pageContext.setAttribute("cn", "\n");
-
-
 %>
 <!DOCTYPE html>
 <html>
@@ -66,6 +64,14 @@
     cursor: pointer;
 
 }
+#addbtn{
+	position: absolute;
+	left: 61.7%;
+	
+
+}
+
+
 </style>
 <script type="text/javascript">
 	function del() {
@@ -92,10 +98,10 @@
 </head>
 
 <body>
+
 	<div align="center">
-		
-		
-		<form name="form" action="/project/store/store/order.do?state=order" method="post">
+	
+		<form name="form" action="/project/store/store/order.do?state=order" method="post" style="margin-top: 50px;">
 		<input type="hidden" name="code" value="${store.code}">
 		<table>
 			<tbody>
@@ -167,23 +173,15 @@
 									<td bgcolor="#FFFFFF" height="23">사 이 즈</td>
 									<td>: <select name="or_size">
 											<option value>사 이 즈</option>
-											<option value="M(95)">M(95)</option>
-											<option value="L(100)">L(100)</option>
-											<option value="XL(105)">XL(105)</option>
+											<option value="M">M(95)</option>
+											<option value="L">L(100)</option>
+											<option value="XL">XL(105)</option>
 
 									</select>
 									</td>
 								</tr>
 
-								<tr>
-									<td height="26"><img
-										src="/project/resources/images/store/chk_10x10.gif" alt=""
-										width="9" height="9"></td>
-									<td height="22"><p>요구사항</p></td>
-									<td style="padding: 4px 0px"><textarea name="or_content"
-											cols="28" rows="5" class="input1"></textarea></td>
-											
-								</tr>
+							
 								
 								
 								
@@ -191,7 +189,7 @@
 								
 								
 								<tr>
-									<td colspan="3"><input type="submit" title="주문하기"
+									<td colspan="3" ><input type="submit" title="주문하기"
 										alt="주문하기" value="주문하기" class="btn_global">
 										<input type="hidden" name="totalPrice" id="totalPrice" >
 										</td>
@@ -206,10 +204,11 @@
 		</form>		
 		<hr />
 	</div>
-
 	<div align="center">
 		<img alt="내용" src="/project/resources/images/store/${store.content}">
 	</div>
+	
+	
 	<div align="center" class="container">
 		<hr />
 		<h3>상품후기</h3>
@@ -217,16 +216,20 @@
 			<div>
 				<input type="hidden" name="code" value=${store.code}>
 				<div>로그인된 아이디</div>
+				
 				<div>
-					제목 : <input type="text" name="title"><br /> 내용 :
-					<textarea name="content" placeholder="내용을 입력하세요"></textarea>
+					<input type="text" name="title"  placeholder="제목을 입력해주세요" style="width: 40%;" id="comm1"> <br/>
+					<textarea name="content" placeholder="내용을 입력하세요"  style="resize: none; width: 40%; height: 100px;"></textarea>					
 				</div>
+				
 				<div>
-					<button class="btn btn-success">등록하기</button>
+				<button class="btn btn-success" id="addbtn" style="width: 60px;"  >등록</button>
 				</div>
+				<br/><br/><br/>
+				
 			</div>
 		</form>
-
+		<br/>
 
 		<table class="table" style="width: 60%;">
 			<thead>

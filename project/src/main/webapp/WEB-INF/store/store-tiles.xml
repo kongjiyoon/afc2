@@ -7,84 +7,77 @@
 	<!-- 스토어 리스트 -->
 	<definition name="store" extends="indexTemplate">
 		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
-		<put-attribute name="headmenu"
-			value="/WEB-INF/menu/headmenu.jsp" />
-		<put-attribute name="content"
-			value="/WEB-INF/store/storelist.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/project/include/footer.jsp" />
+		<put-attribute name="headmenu" 	value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/storelist.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />
 	</definition>
 
 	<definition name="store/read" extends="indexTemplate">
 		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
-		<put-attribute name="headmenu"
-			value="/WEB-INF/menu/headmenu.jsp" />
-		<put-attribute name="content"
-			value="/WEB-INF/store/storeread.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/project/include/footer.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/storeread.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />
 	</definition>
 
 	<definition name="store/insert" extends="indexTemplate">
 		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
-		<put-attribute name="headmenu"
-			value="/WEB-INF/menu/headmenu.jsp" />
-		<put-attribute name="content"
-			value="/WEB-INF/store/storeinsert.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/project/include/footer.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/storeinsert.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />
 	</definition>
 
 	<definition name="store/update" extends="indexTemplate">
 		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
-		<put-attribute name="headmenu"
-			value="/WEB-INF/menu/headmenu.jsp" />
-		<put-attribute name="content"
-			value="/WEB-INF/store/storeupdate.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/project/include/footer.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/storeupdate.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />
 	</definition>
 
 	<definition name="store/order" extends="indexTemplate">
 		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
-		<put-attribute name="headmenu"
-			value="/WEB-INF/menu/headmenu.jsp" />
-		<put-attribute name="content"
-			value="/WEB-INF/store/storeorder.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/project/include/footer.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/storeorder.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />
 	</definition>
 
 	<definition name="store/pay" extends="indexTemplate">
 		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
-		<put-attribute name="headmenu"
-			value="/WEB-INF/menu/headmenu.jsp" />
-		<put-attribute name="content"
-			value="/WEB-INF/store/storepay.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/project/include/footer.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/storepay.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />
 	</definition>
 
 	<definition name="store/fail" extends="indexTemplate">
 		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
-		<put-attribute name="headmenu"
-			value="/WEB-INF/menu/headmenu.jsp" />
-		<put-attribute name="content"
-			value="/WEB-INF/store/fail.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/project/include/footer.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/fail.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />
 	</definition>
 
 
 	<definition name="store/result" extends="indexTemplate">
 		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
-		<put-attribute name="headmenu"
-			value="/WEB-INF/menu/headmenu.jsp" />
-		<put-attribute name="content"
-			value="/WEB-INF/store/result.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/project/include/footer.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/result.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />
 	</definition>
+
+	<definition name="store/history" extends="indexTemplate">
+		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/storehistory.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />	
+	</definition>
+
+	<definition name="store/sales" extends="indexTemplate">
+		<put-attribute name="top" value="/WEB-INF/top/head.jsp" />
+		<put-attribute name="headmenu" value="/WEB-INF/menu/headmenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/store/storesales.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/project/include/footer.jsp" />	
+	</definition>
+
+
+
 
 </tiles-definitions>
 

@@ -45,12 +45,7 @@
 						document.getElementById("or_roadaddr").value = roadAddr;
 
 						// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-						if (roadAddr !== '') {
-							document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-						} else {
-							document.getElementById("sample4_extraAddress").value = '';
-						}
-
+				
 						var guideTextBox = document.getElementById("guide");
 						// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
 						if (data.autoRoadAddress) {
@@ -156,13 +151,14 @@
 										type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br> 
 
 								</div>
-								<p class="in-row">
+								<p>
 									<input type="text" id="or_roadaddr" name="or_roadaddr"
 										class="d_form std" placeholder="도로명주소">
-								</p> <span id="guide" style="color: #999; display: none"></span>
-								<p>
+								<span id="guide" style="color: #999; display: none"></span>
+								
 									<input type="text" id="or_detailaddr" name="or_detailaddr"
-										class="d_form std" placeholder="상세주소"> &nbsp;&nbsp; <input type="text" id="sample4_extraAddress" class="d_form" placeholder="참고항목">
+										class="d_form std" placeholder="상세주소">
+										
 								</p>
 								
 								
@@ -187,7 +183,7 @@
 							<th scope="col"><label for="" class="tit-form">배송요청사항</label></th>
 							<td><label class="placeholder"></label><span
 								class="sticky-placeholder-wrapper"><input type="text"
-									class="in-text" style="width: 442px; height: 23px;"
+									class="in-text" style="width: 442px height: 23px;"
 									name="or_content" id="or_content" maxlength="20"
 									placeholder="배송 메시지를 입력해주세요. 20자이내"></span></td>
 						</tr>

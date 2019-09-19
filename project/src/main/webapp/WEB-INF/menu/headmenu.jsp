@@ -19,7 +19,7 @@
 			<li><a id="a" href="#">RANKING</a></li>
 			<li><a id="a" href="/project/ticketing/matchlist.do">TICKETING</a></li>
 <!-- icons -->
-			<li><a id="icons" href="#"><i class="fas fa-shopping-cart" id="store_i"></i></a></li>
+			<li><a id="icons" href="/project/store/store.do"><i class="fas fa-shopping-cart" id="store_i"></i></a></li>
 			<li><a id="icons"><i onclick="document.getElementById('login').style.display='block'" class="far fa-user" id="login_i"></i></a></li>
 			<li><a id="icons" href="#"><i class="fas fa-font" id="lang_i"></i></a></li>
 			<li><a id="icons" href="#"><i class="fas fa-search" id="search_i"></i></a></li>
