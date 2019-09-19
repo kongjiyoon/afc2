@@ -78,7 +78,7 @@ $(document).ready(function(){
 		});
 		$("#nextbtn").click(function() {
 			location.href="/project/ticketing/seatchoice.do?section1="
-				+section1+"&section2="+section2
+				+section1+"&section2="+section2+"&code=${code}"
 		});
 	
 });	
