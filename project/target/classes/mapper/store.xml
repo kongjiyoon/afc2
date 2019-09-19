@@ -92,14 +92,20 @@
 	
 	<insert id="orderinsert"  parameterType="order">
 	 insert into afcorder
-	 values(#{or_num},#{id},#{or_name},#{count},#{price},#{totalPrice},#{or_size},#{or_date},#{or_phone},#{or_postcode},#{or_roadaddr},#{or_detailaddr},#{or_content},'kakao')	
+	 values(#{or_num},#{id},#{or_name},#{count},#{price},#{totalPrice},#{or_size},sysdate,#{or_phone},#{or_postcode},#{or_roadaddr},#{or_detailaddr},#{or_content},'kakao')	
 	
 	</insert>
 	
 	
 	<select id="categorysearch" parameterType="String" resultType="store">
-		select * from item where category = #{category}
+		select * from item where category = #{category}	
+	</select>
 	
+	<select id="history" parameterType="String" resultType="order">
+		select * from afcorder	
+	</select>
+	<select id="orderdetail" parameterType="String" resultType="order">
+		select * from afcorder where or_num =#{or_num}
 	</select>
 	
 </mapper>

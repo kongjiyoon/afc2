@@ -16,6 +16,10 @@ public class StoreDAOImpl implements StoreDAO {
 	public List<StoreDTO> storelist() {
 		return sqlSession.selectList("afc.store.selectall");
 	}
+	@Override
+	public List<OrderDTO> storehistory(){
+		return sqlSession.selectList("afc.store.history");
+	}
 
 	@Override
 	public StoreDTO read(String code) {
@@ -83,7 +87,9 @@ public class StoreDAOImpl implements StoreDAO {
 		
 		return sqlSession.selectList("afc.store.categorysearch", category);
 	}
-
-
+	@Override
+	public OrderDTO orderdetail(String or_num) {
+		return sqlSession.selectOne("afc.store.orderdetail", or_num);
+	}
 
 }

@@ -137,7 +137,7 @@ public class storeController {
 		return "redirect:/store.do";		
 	}
 	@RequestMapping("/store/store/order.do")
-	public ModelAndView order(OrderDTO order, String code, String state) {
+	public ModelAndView order(OrderDTO order, String code, String state) {		
 		StoreDTO store=service.read(code);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("order",order);
@@ -159,21 +159,38 @@ public class storeController {
 		mav.setViewName("store/pay");
 		
 		return mav;
-	}	
-
-	@RequestMapping("/store/result.do")
-	public ModelAndView result(OrderDTO order) {
+	}
+	@RequestMapping("/store/resultinsert.do")
+	public String resultinsert(OrderDTO order) {
 		int result = service.orderinsert(order);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("order",order);
-		mav.setViewName("store/result");
+		return null;
+	}	
+	
+	@RequestMapping("/store/result.do")
+	public ModelAndView result(String or_num) {		
+		//타입 종류로 insert할지 select 할지 선택 그리고 나머지는 그대로
+		OrderDTO order = service.orderdetail(or_num);	
+		ModelAndView mav = new ModelAndView();					
+			mav.addObject("order",order);
+			mav.setViewName("store/result");	
 		return mav;
 	}
 	@RequestMapping(value="/store/ajax_storelist.do", method=RequestMethod.GET,
 			produces="application/json;charset=utf-8")
 	public @ResponseBody List<StoreDTO> ajaxstorelist(String category){
-		return service.storelist(category);
-		
+		return service.storelist(category);		
+	}
+	@RequestMapping("/store/purchase/history.do")
+	public ModelAndView storehistory() {
+		List<OrderDTO> orderlist=service.storehistory();		
+		ModelAndView mav = new ModelAndView();		
+		mav.addObject("orderlist", orderlist);
+		mav.setViewName("store/history");		
+		return mav;
+	}
+	@RequestMapping("/store/sales.do")
+	public String storesales() {
+		return "store/sales";
 	}
 	
 }

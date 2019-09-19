@@ -1,5 +1,7 @@
 package afc.store;
 
+import java.sql.Date;
+
 public class OrderDTO {
 	String or_num;
 	String id;	
@@ -8,7 +10,8 @@ public class OrderDTO {
 	int price;
 	int totalPrice;
 	String or_size;
-	String or_date;
+	//String or_date;
+	Date or_date;
 	String or_phone;
 	String or_postcode;
 	String or_roadaddr;
@@ -21,7 +24,7 @@ public class OrderDTO {
 	}
 
 	public OrderDTO(String or_num, String id, String or_name, int count, int price, int totalPrice, String or_size,
-			String or_date, String or_phone, String or_postcode, String or_roadaddr, String or_detailaddr,
+			Date or_date, String or_phone, String or_postcode, String or_roadaddr, String or_detailaddr,
 			String or_content, String or_payment) {
 		super();
 		this.or_num = or_num;
@@ -96,11 +99,11 @@ public class OrderDTO {
 		this.or_size = or_size;
 	}
 
-	public String getOr_date() {
+	public Date getOr_date() {
 		return or_date;
 	}
 
-	public void setOr_date(String or_date) {
+	public void setOr_date(Date or_date) {
 		this.or_date = or_date;
 	}
 
@@ -160,6 +163,7 @@ public class OrderDTO {
 				+ or_detailaddr + ", or_content=" + or_content + ", or_payment=" + or_payment + "]";
 	}
 
+	
 
 	
 	
