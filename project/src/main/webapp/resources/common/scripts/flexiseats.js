@@ -6,6 +6,7 @@
     $.fn.flexiSeats = function (options) {
         var scope = this;
         count_seat=0;
+        count2 = 0;
 
         //Options
         var settings = $.extend({
@@ -60,7 +61,7 @@
             //alert(settings.multiple);
             
             if (settings.multiple === true) {
-            	alert("checkcheckmultiple");
+            	//alert("checkcheckmultiple");
                 if (_multiCursor == 0) {
                     _multiCursor = 1;
                     _multiStart = _id;
@@ -80,16 +81,31 @@
                 }                
             }
             else {
-            	//alert("checkcheckmultiplenono");
+            	
                 if ($(this).prop('checked') == true){
                 	count_seat++;
+                	//alert("count2:"+count2+",count_seat:"+count_seat);
                 	if(count_seat<=count2){
+                		
                 		selectSeat(_id);
+                		
+                		
                 	}else{
-                		deselectSeat(_id);
-                		count_seat--;
-                		$(this).attr( 'checked', false );
-                		alert("예매 가능한 매수를 초과했습니다.");
+                		
+                		if(count2==0){
+                			deselectSeat(_id);
+                    		count_seat--;
+                    		$(this).attr( 'checked', false );
+                			alert("구매할 좌석 매수를 선택하세요.");
+                		}else{
+                			deselectSeat(_id);
+                    		count_seat--;
+                    		$(this).attr( 'checked', false );
+                    		alert("예매 가능한 매수를 초과했습니다.");
+                		}
+                		
+                		
+                		
                 	}
                 }   
                 else {
@@ -108,7 +124,7 @@
                 for (j = 0; j < settings.columns; j++) {
                     
                     //Defining ID
-                    var _id = i + '-' + j;
+                    var _id = i + '_' + j;
                     
                     //Creating new seat object and providing ID
                     var _seatObject = new seat();
@@ -156,7 +172,7 @@
                 _row.append(_colLabel);
 
                 for (j = 0; j < settings.columns; j++) {
-                    var _id = i + '-' + j;
+                    var _id = i + '_' + j;
 
                     //Finding the seat from the array
                     var _seatObject = _seats.filter(function(seat){
@@ -310,6 +326,9 @@
             alertSelected2: function (count) {
             	count2 = count;
                 //alert(count2);
+            },
+            getSeats: function(){
+            	return _selected;
             }
         }
         

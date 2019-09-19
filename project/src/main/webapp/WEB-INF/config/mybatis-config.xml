@@ -10,12 +10,15 @@
 		<typeAlias type="afc.store.StoreDTO" alias="store" />
 		<typeAlias type="afc.store.BoardDTO" alias="board" />
 		<typeAlias type="afc.store.OrderDTO" alias="order" />
-		
-
+		<typeAlias type="ktds.afc.ticketing.TicketDTO" alias="ticket" />
+		<typeAlias type="ktds.afc.ticketing.Ticket2DTO" alias="ticket2" />
+		<typeAlias type="ktds.afc.match.MatchDTO" alias="match" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/store.xml" />
 		<mapper resource="mapper/member.xml" />
 		<mapper resource="mapper/stadium.xml" />
+		<mapper resource="mapper/ticketing.xml" />
+		<mapper resource="mapper/match.xml" />
 	</mappers>
 </configuration>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -25,7 +26,9 @@
 <script type="text/javascript">
 	section1 = "${section1}";
 	section2 = "${section2}";
-	//alert(section1+","+section2);
+	code = "${code}";
+	var seats_selected = new Array();
+	alert(section1+","+section2+","+code);
 	$(document).ready(
 			function() {
 
@@ -33,7 +36,7 @@
 					rows : 20,
 					columns : 30,
 					multiple : false,
-					booked : [ '1-2', '4-7' ]
+					booked : [ '1_2', '4_7' ]
 				});
 
 				getBlocks();
@@ -76,7 +79,67 @@
 					theme : 'tooltipster-shadow'
 				});
 				$('#btnGetSelected').click(function() {
-					seats.alertSelected();
+					//seats.alertSelected();
+					//alert(seats.getSeats());
+					seats_selected = seats.getSeats();
+					ea = parseInt($("#seatchoiceCount option:selected").val());
+					alert(seats_selected);
+					
+					var form = document.createElement("form");      // form 엘리멘트 생성
+				    form.setAttribute("method","post");             // method 속성 설정
+				    form.setAttribute("action","/project/ticketing/ticketingorder.do");       // action 속성 설정
+				    document.body.appendChild(form);                // 현재 페이지에 form 엘리멘트 추가
+				  
+				    var insert1 = document.createElement("input");   // input 엘리멘트 생성
+				    insert1.setAttribute("type","hidden");           // type 속성을 hidden으로 설정
+				    insert1.setAttribute("name","section1");               // name 속성을 'stadium'으로 설정
+				    insert1.setAttribute("value",section1);             // value 속성을 삽입
+				    form.appendChild(insert1);                       // form 엘리멘트에 input 엘리멘트 추가
+				    
+				    var insert2 = document.createElement("input");   // input 엘리멘트 생성
+				    insert2.setAttribute("type","hidden");           // type 속성을 hidden으로 설정
+				    insert2.setAttribute("name","section2");               // name 속성을 'stadium'으로 설정
+				    insert2.setAttribute("value",section2);             // value 속성을 삽입
+				    form.appendChild(insert2);   
+				    
+				    var insert3 = document.createElement("input");   // input 엘리멘트 생성
+				    insert3.setAttribute("type","hidden");           // type 속성을 hidden으로 설정
+				    insert3.setAttribute("name","ea");               // name 속성을 'stadium'으로 설정
+				    insert3.setAttribute("value",ea);             // value 속성을 삽입
+				    form.appendChild(insert3);                       // form 엘리멘트에 input 엘리멘트 추가
+				    
+				    var insert4 = document.createElement("input");   // input 엘리멘트 생성
+				    insert4.setAttribute("type","hidden");           // type 속성을 hidden으로 설정
+				    insert4.setAttribute("name","seats_selected");               // name 속성을 'stadium'으로 설정
+				    insert4.setAttribute("value",seats_selected);             // value 속성을 삽입
+				    form.appendChild(insert4);                       // form 엘리멘트에 input 엘리멘트 추가
+				    
+				    var insert5 = document.createElement("input");   // input 엘리멘트 생성
+				    insert5.setAttribute("type","hidden");           // type 속성을 hidden으로 설정
+				    insert5.setAttribute("name","code");               // name 속성을 'stadium'으로 설정
+				    insert5.setAttribute("value",code);             // value 속성을 삽입
+				    form.appendChild(insert5);                       // form 엘리멘트에 input 엘리멘트 추가
+				 
+				    form.submit();                                  // 전송
+
+					
+					  /* $.ajax({
+						type: "get",
+						url:"/project/ticketing/ticketingorder.do",
+						data:{ "section1" : section1, "section2" : section2, "ea" : ea , "seats_selected" : seats_selected},
+						dataType: "json",
+						async:true,
+						success: function(jdata){
+							if(jdata.length!=0){
+							}
+							 
+						}, error: function(xhr){
+							console.log(xhr.responseText);
+							alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
+							return;
+						}
+					});  */ 
 				});
 				
 				$("#seatchoiceCount").change(function() {
@@ -84,6 +147,7 @@
 					seats.alertSelected2(count);
 				});
 
+				
 			});
 </script>
 
@@ -94,12 +158,17 @@
         Columns: <input id="txtCols" type="text" />
         <input type="button" id="btnDraw" value="Draw" />
     </div> -->
+    
+    <!-- <form action="/project/ticketing/ticketingorder.do" method="post"> -->
 	<div class="container" style="text-align: center;">
 		<h3>${section1 },${section2 }&nbsp;구역</h3>
 
+		<%-- <input type="hidden" name="section1" value="${section1 }"/>
+		<input type="hidden" name="section2" value="${section2 }"/> --%>
+		
 		<div>
 			구매할 좌석 갯수:&nbsp;&nbsp; 
-			<select name="seatchoiceCount" id="seatchoiceCount">
+			<select name="ea" id="seatchoiceCount">
 				<option value="0">-선택-</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -107,12 +176,10 @@
 				<option value="4">4</option>
 				<option value="5">5</option>
 				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
 			</select>
 
 		</div>
+		
 		<div class="legends">
 			<input id="legAvailable" type="checkbox" disabled /> <label
 				for="legAvailable"> Available</label> <input id="legAvailable"
@@ -126,9 +193,10 @@
 
 		<div id="seats"></div>
 		<div class="methods">
-			<button type="button" id="btnGetSelected">결제하기 ></button>
+			<button type="submit" id="btnGetSelected">예매하기 ></button>
 		</div>
 	</div>
+	</form>
 	<!-- <div>
         <br />
         <h4>Mode</h4>

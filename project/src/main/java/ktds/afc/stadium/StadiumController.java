@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import ktds.afc.match.MatchDTO;
+
 
 
 
@@ -22,20 +24,19 @@ public class StadiumController {
 	@Autowired
 	StadiumService service;
 	
-	@RequestMapping(value="/ticketing/matchlist.do")
-	public String matchlist() {
-		return "ticketing/matchlist";
-	}
+	
 
-	@RequestMapping(value="/ticketing/stadium.do")
-	public String showstadium() {
-		return "ticketing/stadium";
+	@RequestMapping(value="/ticketing/stadium.do",
+			method=RequestMethod.GET)
+	public ModelAndView showstadium(String code) {
+		ModelAndView mav= new ModelAndView();
+		//System.out.println(code);
+		mav.addObject("code", code);
+		mav.setViewName("ticketing/stadium");
+		return mav;
 	}
 	
-	@RequestMapping(value="/ticketing/history.do")
-	public String showhistory() {
-		return "ticketing/history";
-	}
+	
 	
 	//ajax로 요청되는 메소드
 	//pom.xml에 jackson라이브러리를 추가해놓으면
